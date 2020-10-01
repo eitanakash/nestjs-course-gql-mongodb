@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "1b74cd33-b4e1-4069-a292-45fd229e286f",
+		"name": "graphql-orm-mongo-nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mutation: create-student ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": " mutation {\n  createStudent (\n    createStudentInput: {\n      firstName: \"dan\",\n      lastName: \"ba\"\n    }\n  ) {\n    firstName\n    lastName\n    id\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mutation: create-lesson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  createLesson(\n    createLessonInput: {\n      name: \"typeScript\"\n      startDate: \"2020-10-05T14:00:00.000Z\"\n      endDate: \"2021-10-05T14:00:00.000Z\"\n      students:[\n        \"9a8f61c9-1973-4e91-80f8-1ced8d69238a\",\n        \"9fbdb198-df50-4e0a-b26b-c67bde532456\"\n      ]\n    }) {\n    name\n    id\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mutation: assignStudentsToLesson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\nassignStudentsToLesson(\n  assignStudentsToLessonInput: {\n    lessonId: \"d4e28c91-2bd7-4732-886f-2a15e442734e\",\n    studentIds: [\n      \"43caa625-fa8c-42a8-9f7f-65d3c542ee78\"\n    ]\n  }\n) {\n  id\n  name\n  students {\n    firstName\n    lastName\n  }\n}\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query: lesson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\nlesson (id:\"a957febc-d9ce-4e7f-99af-9e6def89ee28\"){\n  name  \n  startDate\n}\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query: student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\nstudent (id:\"43caa625-fa8c-42a8-9f7f-65d3c542ee78\"){\n  firstName  \n}\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query: students",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\nstudents {\n  lastName  \n  id\n}\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
